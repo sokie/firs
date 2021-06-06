@@ -71,7 +71,7 @@
                 <tal:has_production condition="industry.has_production">
                     produce_256_ticks:        ${industry.id}_production_256_economy_${economy.numeric_id};
                 </tal:has_production>
-                location_check:           ${industry.id}_check_location;
+                location_check:           ${industry.id}_cabbage;
                 extra_text_fund:          ${industry.get_extra_text_fund(economy)};
                 <!--! The 0x3800 expressions here are related to using extended cb 37 before nml support was added, and can be removed when nml is updated -->
                 cargo_subtype_display:    return 0x3800 + string(STR_EMPTY);

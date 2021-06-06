@@ -16,6 +16,7 @@ industry = IndustryPrimaryOrganic(
     extra_text_fund="string(STR_FUND_FARM)",
     nearby_station_name="string(STR_STATION_BARNS)",
     fund_cost_multiplier="49",
+    test_town_industry_type=1,
 )
 
 # definitely not in Arctic Basic, farm has been added and removed more than once from that economy :P

@@ -36,16 +36,29 @@
 
 <tal:include metal:use-macro="load: properties_industry.pynml" />
 
+switch(FEAT_INDUSTRIES, PARENT, ${industry.id}_randomise_primary_production_on_build_foo,
+    <tal:block condition="industry.test_town_industry_type is not None">
+        STORE_PERM(${industry.test_town_industry_type}, 1)
+    </tal:block>
+    <tal:block condition="industry.test_town_industry_type is None">
+        0
+    </tal:block>
+        ){
+    return 16;
+}
+
+
 <!--! graphics block defined explicitly per industry subclass, to avoid too much fiddly conditional stuff -->
 <tal:build_economies repeat="economy industry.economies_enabled_for_industry">
     if (economy==${economy.numeric_id}) {
         item(FEAT_INDUSTRIES, ${industry.id}, ${industry.numeric_id}) {
             graphics {
                 construction_probability: ${industry.id}_check_availability;
+                build_prod_change:        ${industry.id}_randomise_primary_production_on_build_foo;
                 produce_cargo_arrival:    ${industry.id}_produce_cargo_arrival;
                 monthly_prod_change:      CB_RESULT_IND_PROD_NO_CHANGE;
                 random_prod_change:       CB_RESULT_IND_PROD_NO_CHANGE;
-                location_check:           ${industry.id}_check_location;
+                location_check:           ${industry.id}_cabbage;
                 extra_text_fund:          ${industry.get_extra_text_fund(economy)};
                 extra_text_industry:      ${industry.id}_extra_text;
                 cargo_subtype_display:    ${industry.id}_cargo_subtype_display;

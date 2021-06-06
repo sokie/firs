@@ -56,12 +56,24 @@ switch (FEAT_INDUSTRIES, SELF, ${industry.id}_produce_256_ticks, economy) {
 
 <tal:include metal:use-macro="load: properties_industry.pynml" />
 
+switch(FEAT_INDUSTRIES, PARENT, ${industry.id}_randomise_primary_production_on_build_foo,
+    <tal:block condition="industry.test_town_industry_type is not None">
+        STORE_PERM(${industry.test_town_industry_type}, 1)
+    </tal:block>
+    <tal:block condition="industry.test_town_industry_type is None">
+        0
+    </tal:block>
+        ){
+    return randomise_primary_production_on_build;
+}
+
+
 <!--! graphics block defined explicitly per industry subclass, to avoid too much fiddly conditional stuff -->
 <!--! no economy support currently -->
 item(FEAT_INDUSTRIES, ${industry.id}, ${industry.numeric_id}) {
 	graphics {
 		construction_probability: ${industry.id}_check_availability;
-        build_prod_change:        randomise_primary_production_on_build;
+        build_prod_change:        ${industry.id}_randomise_primary_production_on_build_foo;
         produce_256_ticks:        ${industry.id}_produce_256_ticks;
 		location_check:           ${industry.id}_check_location;
 		monthly_prod_change:      return CB_RESULT_IND_PROD_NO_CHANGE;

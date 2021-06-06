@@ -21,6 +21,7 @@ industry = IndustrySecondary(
     name="string(STR_IND_BASIC_OXYGEN_FURNACE)",
     nearby_station_name="string(STR_STATION_FURNACE)",
     fund_cost_multiplier="160",
+    test_town_industry_type=2,
 )
 
 industry.economy_variations["STEELTOWN"].enabled = True

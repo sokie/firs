@@ -1169,6 +1169,9 @@ class Industry(object):
         self.industry_layouts = []
         self.default_industry_properties = IndustryProperties(**kwargs)
         self.economy_variations = {}
+        self.test_town_industry_type = kwargs.get('test_town_industry_type', None)
+        self.test_town_industry_type_requires = kwargs.get('test_town_industry_type_requires', None)
+        self.test_town_industry_type_excludes = kwargs.get('test_town_industry_type_excludes', [])
         for economy in registered_economies:
             self.add_economy_variation(economy)
         self.template = kwargs.get(
