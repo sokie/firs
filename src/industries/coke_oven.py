@@ -7,13 +7,12 @@ industry = IndustrySecondary(
     prob_in_game="3",
     prob_map_gen="5",
     map_colour="183",
-    # it's rare to force co-location of secondaries, but this one is near blast furnace by design
-    location_checks=dict(
-        industry_max_distance=["blast_furnace", 72], same_type_distance=72
-    ),
+    location_checks=dict(same_type_distance=72),
     name="string(STR_IND_COKE_OVEN)",
     nearby_station_name="string(STR_STATION_BANK_TOP)",
     fund_cost_multiplier="120",
+    TEST_town_types=[3, 4],
+    TEST_requires_keystone=True,
 )
 
 industry.economy_variations["STEELTOWN"].enabled = True

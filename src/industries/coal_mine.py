@@ -11,6 +11,8 @@ industry = IndustryPrimaryExtractive(
     name="TTD_STR_INDUSTRY_NAME_COAL_MINE",
     nearby_station_name="string(STR_STATION_COLLIERY)",
     fund_cost_multiplier="252",
+    TEST_town_types=[4],
+    TEST_is_keystone=True,
 )
 
 

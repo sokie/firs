@@ -8,13 +8,12 @@ industry = IndustrySecondary(
     prob_map_gen="5",
     map_colour="19",
     special_flags=["IND_FLAG_MILITARY_AIRPLANE_CAN_EXPLODE"],
-    # it's rare to force co-location of secondaries, but this one is near blast furnace by design
-    location_checks=dict(
-        industry_max_distance=["blast_furnace", 72], same_type_distance=72
-    ),
+    location_checks=dict(same_type_distance=72),
     name="string(STR_IND_SLAG_GRINDING_PLANT)",
     nearby_station_name="string(STR_STATION_SILO)",
     fund_cost_multiplier="100 ",
+    TEST_town_types=[3, 6],
+    TEST_requires_keystone=True,
 )
 
 industry.economy_variations["STEELTOWN"].enabled = True

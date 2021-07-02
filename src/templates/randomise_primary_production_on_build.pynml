@@ -1,4 +1,4 @@
-random_switch(FEAT_INDUSTRIES, SELF, randomise_primary_production_on_build) {
+random_switch(FEAT_INDUSTRIES, SELF, randomise_primary_production_on_build_foo) {
 	1: return 8;
 	1: return 12;
 	4: return 16;
@@ -8,3 +8,8 @@ random_switch(FEAT_INDUSTRIES, SELF, randomise_primary_production_on_build) {
 	1: return 32;
 	1: return 36;
 }
+
+switch (FEAT_INDUSTRIES, PARENT, randomise_primary_production_on_build, keystone_flag, [keystone_flag == 1 ? STORE_PERM(1, 99): 0]) {
+    return randomise_primary_production_on_build_foo;
+}
+

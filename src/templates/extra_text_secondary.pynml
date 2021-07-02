@@ -1,11 +1,17 @@
 <!--! Extra text in the industry window (callback 3A) -->
 
-switch (FEAT_INDUSTRIES, SELF, ${industry.id}_extra_text, economy) {
+switch (FEAT_INDUSTRIES, SELF, ${industry.id}_extra_text_foo, economy) {
     <tal:economies repeat="economy industry.economies_enabled_for_industry">
         ${economy.numeric_id}: return ${industry.get_extra_text_string(economy)};
     </tal:economies>
 }
 
+<!--!switch (FEAT_INDUSTRIES, PARENT, ${industry.id}_extra_text, ${"[STORE_PERM(var[0x41, 0, 0xFFFF] % " + str(industry.TEST_town_type) + ", 128)]" if industry.TEST_town_type is not None else 0}) {
+    return ${industry.id}_extra_text_foo;
+}-->
+switch (FEAT_INDUSTRIES, PARENT, ${industry.id}_extra_text, STORE_PERM(town_index, 128)) {
+    return ${industry.id}_extra_text_foo;
+}
 
 <!--!
     Additional text after the cargos in the industry window (callback 37)

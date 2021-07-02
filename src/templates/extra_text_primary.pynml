@@ -1,6 +1,6 @@
 <!--! Extra text in the industry window (callback 3A) -->
 
-switch(FEAT_INDUSTRIES, SELF, ${industry.id}_extra_text, [
+switch(FEAT_INDUSTRIES, SELF, ${industry.id}_extra_text_foo, [
 	STORE_TEMP((primary_level1_requirement * ${industry.supply_requirements[2]}) |
 	(primary_level2_requirement * ${industry.supply_requirements[2]}) << 16, 0x100),
 	LOAD_PERM(${industry.perm_storage.var_current_supplies_prod_factor})
@@ -8,6 +8,14 @@ switch(FEAT_INDUSTRIES, SELF, ${industry.id}_extra_text, [
 	primary_level2_produced_percent: return string(STR_${industry.supply_requirements[1]}_PRODUCTION_4X);
 	primary_level1_produced_percent: return string(STR_${industry.supply_requirements[1]}_PRODUCTION_2X);
 	return string(STR_${industry.supply_requirements[1]}_PRODUCTION_1X);
+}
+
+
+<!--!switch (FEAT_INDUSTRIES, PARENT, ${industry.id}_extra_text, ${"[STORE_PERM(var[0x41, 0, 0xFFFF] % " + str(industry.TEST_town_type) + ", 128)]" if industry.TEST_town_type is not None else 0}) {
+    return ${industry.id}_extra_text_foo;
+}-->
+switch (FEAT_INDUSTRIES, PARENT, ${industry.id}_extra_text, STORE_PERM(town_index % 3, 127)) {
+    return ${industry.id}_extra_text_foo;
 }
 
 <!--!
@@ -50,3 +58,4 @@ switch (FEAT_INDUSTRIES, SELF, ${industry.id}_cargo_subtype_display, getbits(ext
     1: ${industry.id}_cargo_subtype_display_switch_economy;
     return CB_RESULT_NO_TEXT;
 }
+

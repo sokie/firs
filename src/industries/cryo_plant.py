@@ -12,6 +12,7 @@ industry = IndustryPrimaryNoSupplies(
     name="string(STR_IND_CRYO_PLANT)",
     nearby_station_name="string(STR_STATION_CRYO_PLANT)",
     fund_cost_multiplier="180",
+    TEST_town_types=[5],
 )
 
 industry.economy_variations["STEELTOWN"].enabled = True

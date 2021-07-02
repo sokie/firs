@@ -93,6 +93,7 @@ switch(FEAT_INDUSTRIES, PARENT, ${industry.id}_produce, [
             graphics {
                 produce_256_ticks:       ${industry.id}_produce;
                 construction_probability:${industry.id}_check_availability;
+                build_prod_change:        randomise_primary_production_on_build(${1 if industry.TEST_is_keystone else 0});
                 location_check:          ${industry.id}_check_location;
                 monthly_prod_change:     CB_RESULT_IND_PROD_NO_CHANGE;
                 random_prod_change:      CB_RESULT_IND_PROD_NO_CHANGE;

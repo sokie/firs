@@ -11,6 +11,7 @@ industry = IndustrySecondary(
     name="string(STR_IND_CHLOR_ALKALI_PLANT)",
     nearby_station_name="string(STR_STATION_BRINE_WORKS)",
     fund_cost_multiplier="170",
+    TEST_town_types=[5],
 )
 
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True

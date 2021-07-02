@@ -84,13 +84,30 @@
         Restrictions apply only to industries funded by the game.
         founder == FOUNDER_GAME means founded by the game, 0 .. 15 are player companies */
     -->
-    switch (FEAT_INDUSTRIES, SELF, ${location_check.switch_entry_point}, (
+    switch (FEAT_INDUSTRIES, SELF, ${location_check.switch_entry_point}_bar, (
                 (extra_callback_info2 == IND_CREATION_FUND) ||
                 (extra_callback_info2 == IND_CREATION_PROSPECT)
                 )
             ) {
         1: return CB_RESULT_LOCATION_ALLOW;
         ${location_check.switch_result};
+    }
+    switch (FEAT_INDUSTRIES, PARENT, ${location_check.switch_entry_point}_foo, [LOAD_PERM(99)]) {
+        <tal:industry_requires_keystone condition="industry.TEST_requires_keystone">
+            0: return CB_RESULT_LOCATION_DISALLOW;
+        </tal:industry_requires_keystone>
+        return ${location_check.switch_entry_point}_bar;
+    }
+    switch (FEAT_INDUSTRIES, PARENT, ${location_check.switch_entry_point}, town_index % 8) {
+        <tal:town_type_required condition="len(industry.TEST_town_types) > 0">
+            <tal:town_type repeat="town_type industry.TEST_town_types">
+                ${town_type}: return ${location_check.switch_entry_point}_foo;
+            </tal:town_type>
+            return CB_RESULT_LOCATION_DISALLOW;
+        </tal:town_type_required>
+        <tal:no_town_type_required condition="len(industry.TEST_town_types) == 0">
+            return ${location_check.switch_entry_point}_foo;
+        </tal:no_town_type_required>
     }
 </metal:check_founder>
 

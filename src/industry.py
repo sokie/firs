@@ -1160,6 +1160,9 @@ class Industry(object):
     def __init__(self, id, graphics_change_dates=[], **kwargs):
         self.id = id
         self.graphics_change_dates = graphics_change_dates  # 0-based, ordered list of dates for which graphics should change, match to graphics suffixed _1, _2, _3 etc.
+        self.TEST_town_types = kwargs.get("TEST_town_types", [])
+        self.TEST_requires_keystone = kwargs.get("TEST_requires_keystone", False)
+        self.TEST_is_keystone = kwargs.get("TEST_is_keystone", False)
         self.tiles = []
         self.sprites = []
         self.smoke_sprites = []
