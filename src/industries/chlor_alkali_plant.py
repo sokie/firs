@@ -208,6 +208,12 @@ industry.add_industry_outpost_layout(
             "chlor_alkali_plant_spritelayout_vertical_tanks",
         ),
         (
+            0,
+            2,
+            "chlor_alkali_plant_tile_1",
+            "chlor_alkali_plant_spritelayout_vertical_tanks",
+        ),
+        (
             1,
             0,
             "chlor_alkali_plant_tile_1",
@@ -215,6 +221,54 @@ industry.add_industry_outpost_layout(
         ),
         (
             1,
+            1,
+            "chlor_alkali_plant_tile_1",
+            "chlor_alkali_plant_spritelayout_spherical_tanks",
+        ),
+        (
+            1,
+            2,
+            "chlor_alkali_plant_tile_1",
+            "chlor_alkali_plant_spritelayout_barrels",
+        ),
+    ],
+)
+industry.add_industry_outpost_layout(
+    id="coke_oven_industry_outpost_layout_2",
+    layout=[
+        # test outpost layout
+        (
+            0,
+            0,
+            "chlor_alkali_plant_tile_1",
+            "chlor_alkali_plant_spritelayout_vertical_tanks",
+        ),
+        (
+            0,
+            1,
+            "chlor_alkali_plant_tile_1",
+            "chlor_alkali_plant_spritelayout_vertical_tanks",
+        ),
+        (
+            1,
+            0,
+            "chlor_alkali_plant_tile_1",
+            "chlor_alkali_plant_spritelayout_spherical_tanks",
+        ),
+        (
+            1,
+            1,
+            "chlor_alkali_plant_tile_1",
+            "chlor_alkali_plant_spritelayout_spherical_tanks",
+        ),
+        (
+            2,
+            0,
+            "chlor_alkali_plant_tile_1",
+            "chlor_alkali_plant_spritelayout_spherical_tanks",
+        ),
+        (
+            2,
             1,
             "chlor_alkali_plant_tile_1",
             "chlor_alkali_plant_spritelayout_spherical_tanks",
