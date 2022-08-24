@@ -885,14 +885,36 @@ class IndustryLayout(object):
 
     def __init__(self, id, layout, validate=True):
         self.id = id
-        self.layout = layout  # a list of 4-tuples (SE offset from N tile, SW offset from N tile, tile identifier, identifier of spriteset or next nml switch)
+        # layouts are defined as a list of 6-tuples
+        # - x offset from N tile of industry
+        # - y offset from N tile of industry
+        # - tile identifier
+        # - identifier of spriteset or next nml switch)
+        # - x offset to N tile of sublayout
+        # - y offset to N tile of sublayout
+        # the sublayout offsets are optional in the initial declaration, and if not provided will be calculated, using the assumption that there is only one sublayout
+        self.layout = []
+        for tile_def in layout:
+            # this assumption about tuple length does not defend well against bad input, but eh, don't do bad input?
+            if len(tile_def) == 4:
+                new_tile_def = (
+                    tile_def[0],
+                    tile_def[1],
+                    tile_def[2],
+                    tile_def[3],
+                    -1 * tile_def[0],
+                    -1 * tile_def[1],
+                )
+                self.layout.append(new_tile_def)
+            else:
+                self.layout.append(tile_def)
         # validation can be optionally suppressed as combined layouts may be invalid until their xy offsets are shifted positive (for example)
         if validate:
             self.validate()
 
     def validate(self):
         # in-game industry layouts must not have negative xy offsets
-        for x, y, tile_id, spritelayout_id in self.layout:
+        for x, y, tile_id, spritelayout_id, x_to_sublayout_n_tile, y_to_sublayout_n_tile in self.layout:
             for offset_dir in [x, y]:
                 if offset_dir < 0:
                     raise BaseException(
@@ -1443,6 +1465,8 @@ class Industry(object):
                                 xy_offset[1] + tile_def[1],
                                 tile_def[2],
                                 tile_def[3],
+                                tile_def[4],
+                                tile_def[5],
                             )
                             combined_layout.append(new_tile_def)
                         # layouts can't use -ve xy values,
@@ -1467,6 +1491,9 @@ class Industry(object):
                                 tile_def[1] + shift_y,
                                 tile_def[2],
                                 tile_def[3],
+                                # also add negative offsets to the north tile of the sublayout (to support detailed location checks)
+                                tile_def[4],
+                                tile_def[5],
                             )
                             shifted_layout.append(shifted_tile_def)
                         result.append(IndustryLayout(id=new_id, layout=shifted_layout))

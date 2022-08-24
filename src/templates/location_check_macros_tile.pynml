@@ -208,16 +208,18 @@
         The stacked ternary operators make it look more complicated than it is.
     -->
     switch (FEAT_INDUSTRYTILES, SELF, ${location_check.switch_entry_point},
-                (
-                nearby_tile_height(-relative_x, -relative_y)
-                + (nearby_tile_slope(-relative_x, -relative_y)
-                == SLOPE_FLAT ? 0 :
-                nearby_tile_slope(-relative_x, -relative_y) == bitmask(IS_STEEP_SLOPE) ? 2 : 1
-                )) == (nearby_tile_height(0, 0)
-                + (nearby_tile_slope(0, 0)
-                == SLOPE_FLAT ? 0 :
-                nearby_tile_slope(0, 0) == bitmask(IS_STEEP_SLOPE) ? 2 : 1))
-                ) {
+                [
+                    (
+                    nearby_tile_height(-LOAD_TEMP(10), -LOAD_TEMP(11))
+                    + (nearby_tile_slope(-LOAD_TEMP(10), -LOAD_TEMP(11))
+                    == SLOPE_FLAT ? 0 :
+                    nearby_tile_slope(-LOAD_TEMP(10), -LOAD_TEMP(11)) == bitmask(IS_STEEP_SLOPE) ? 2 : 1
+                    )) == (nearby_tile_height(0, 0)
+                    + (nearby_tile_slope(0, 0)
+                    == SLOPE_FLAT ? 0 :
+                    nearby_tile_slope(0, 0) == bitmask(IS_STEEP_SLOPE) ? 2 : 1))
+                ]
+            ) {
         1: ${location_check.switch_result};
         return CB_RESULT_LOCATION_DISALLOW;
     }

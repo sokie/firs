@@ -1,4 +1,26 @@
+<!--! if any tile location checks use 'require_effectively_flat' we also need to know relative offsets to sublayouts for -->
+<!--! !!!! this could be optimised out if no industry tiles use 'require_effectively_flat' -->
+<tal:relative_offset_layouts repeat="industry_layout industry.industry_layouts">
+    switch (FEAT_INDUSTRYTILES, SELF, ${industry_layout.id}_relative_offset_layout, relative_pos) {
+        <tal:tiles repeat="tile_def industry_layout.layout">
+            relative_coord(${tile_def[0]}, ${tile_def[1]}): [STORE_TEMP(${-1 * tile_def[4]}, 10), STORE_TEMP(${-1 * tile_def[5]}, 11)];
+        </tal:tiles>
+    }
+</tal:relative_offset_layouts>
+switch(FEAT_INDUSTRYTILES, PARENT, ${industry.id}_switch_relative_offset_layout, layout_num) {
+    <tal:available_industry_layouts repeat="layout_num range(len(industry.industry_layouts))">
+        ${layout_num+1}: ${industry.industry_layouts[layout_num].id}_relative_offset_layout;
+    </tal:available_industry_layouts>
+}
+
 <tal:tiles repeat="tile industry.tiles">
+    <tal:tile_check_location condition="len(tile.location_checks.get_render_tree(tile.id, industry.id)) > 0">
+        switch(FEAT_INDUSTRYTILES, PARENT, ${tile.id}_switch_init_location_check,
+            [${industry.id}_switch_relative_offset_layout()]
+            ) {
+            return ${tile.location_checks.get_render_tree(tile.id, industry.id)[-1].switch_entry_point};
+        }
+    </tal:tile_check_location>
     <!--! tile properties that are same for all economies -->
     item(FEAT_INDUSTRYTILES, ${tile.id}, ${tile.numeric_id}) {
         property {
@@ -17,7 +39,7 @@
 
         graphics {
     		<tal:tile_check_location condition="len(tile.location_checks.get_render_tree(tile.id, industry.id)) > 0">
-    		    tile_check: ${tile.location_checks.get_render_tree(tile.id, industry.id)[-1].switch_entry_point};
+    		    tile_check: ${tile.id}_switch_init_location_check;
             </tal:tile_check_location>
             <tal:anim_next_frame condition="tile.custom_animation_next_frame">
                 anim_next_frame: return ${tile.custom_animation_next_frame};
