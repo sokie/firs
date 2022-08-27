@@ -22,7 +22,7 @@
     switch(FEAT_INDUSTRYTILES, SELF, ${location_check.switch_entry_point}, nearby_tile_water_class(0,0)) {
         WATER_CLASS_SEA: ${location_check.switch_result};
         WATER_CLASS_NONE: ${location_check.switch_result};
-        return CB_RESULT_LOCATION_DISALLOW;
+        return string(STR_ERR_INSTRUMENT_LOCATION_REQUIRE_SEA_TILE);
     }
 </metal:require_sea_tile>
 
@@ -40,7 +40,7 @@
 <metal:disallow_coast_or_water metal:define-macro="disallow_coast_or_water">
     <!--!  Check that the tile itself is not a coast or water tile -->
     switch(FEAT_INDUSTRYTILES, SELF, ${location_check.switch_entry_point}, nearby_tile_is_water(0, 0)) {
-        1: return CB_RESULT_LOCATION_DISALLOW;
+        1: return string(STR_ERR_INSTRUMENT_LOCATION_REQUIRE_DISALLOW_COAST_OR_WATER);
         ${location_check.switch_result};
     }
 </metal:disallow_coast_or_water>
@@ -59,7 +59,7 @@
     <!--!  Check whether a tile is a flat tile and only allow construction in that case -->
     switch (FEAT_INDUSTRYTILES, SELF, ${location_check.switch_entry_point}, nearby_tile_slope(0,0) == SLOPE_FLAT) {
         1: ${location_check.switch_result};
-        return CB_RESULT_LOCATION_DISALLOW;
+        return string(STR_ERR_INSTRUMENT_LOCATION_DISALLOW_SLOPES);
     }
 </metal:disallow_slopes>
 
@@ -67,7 +67,7 @@
 <metal:require_slope metal:define-macro="require_slope">
     <!--!  Check whether a tile is a sloped tile and only allow construction in that case (usually for checking coasts) -->
     switch(FEAT_INDUSTRYTILES, SELF, ${location_check.switch_entry_point}, nearby_tile_slope(0,0) == SLOPE_FLAT) {
-        1: return CB_RESULT_LOCATION_DISALLOW;
+        1: return string(STR_ERR_INSTRUMENT_LOCATION_REQUIRE_SLOPE);
         ${location_check.switch_result};
     }
 
@@ -90,7 +90,7 @@
                                                       (nearby_tile_class(1, 0) == TILE_CLASS_ROAD ? 1 : 0
                                                       ))))) {
         1: ${location_check.switch_result};
-        return CB_RESULT_LOCATION_DISALLOW;
+        return string(STR_ERR_INSTRUMENT_LOCATION_REQUIRE_ROAD_ADJACENT);
     }
 </metal:require_road_adjacent>
 
@@ -102,7 +102,7 @@
     -->
     switch (FEAT_INDUSTRYTILES, SELF, ${location_check.switch_entry_point}_${len(location_check.search_points)}, LOAD_TEMP(0)) {
         1: ${location_check.switch_result};
-        return CB_RESULT_LOCATION_DISALLOW;
+        return string(STR_ERR_INSTRUMENT_LOCATION_REQUIRE_HOUSES_NEARBY);
     }
     <!--! repeat over all the search points, if houses are found in any, a flag is set 1, which is checked at end -->
     <tal:search_point repeat="search_point location_check.search_points">
@@ -173,7 +173,7 @@
             (nearby_tile_class( -2, -1) == TILE_CLASS_INDUSTRY) ||
             (nearby_tile_class( -2, -2) == TILE_CLASS_INDUSTRY)
         ) {
-        1: return CB_RESULT_LOCATION_DISALLOW;
+        1: return string(STR_ERR_INSTRUMENT_LOCATION_DISALLOW_INDUSTRY_ADJACENT);
         ${location_check.switch_result};
     }
 </metal:disallow_industry_adjacent>
@@ -192,7 +192,7 @@
                 (nearby_tile_terrain_type(-1,  0) == TILETYPE_DESERT) &&
                 (nearby_tile_terrain_type(-1,  1) == TILETYPE_DESERT)
             ) {
-        1: return CB_RESULT_LOCATION_DISALLOW;
+        1: return string(STR_ERR_INSTRUMENT_LOCATION_DISALLOW_DESERT);
         ${location_check.switch_result};
     }
 </metal:disallow_desert>
@@ -219,6 +219,6 @@
                 nearby_tile_slope(0, 0) == bitmask(IS_STEEP_SLOPE) ? 2 : 1))
                 ) {
         1: ${location_check.switch_result};
-        return CB_RESULT_LOCATION_DISALLOW;
+        return string(STR_ERR_INSTRUMENT_LOCATION_REQUIRE_EFFECTIVELY_FLAT);
     }
 </metal:require_effectively_flat>

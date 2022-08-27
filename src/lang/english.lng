@@ -362,6 +362,18 @@ STR_ERR_LOCATION_NOT_IN_DESERT                                                  
 STR_ERR_LOCATION_NOT_ON_STEEP_SLOPE                                             :cannot be placed on steep slopes.
 STR_ERR_LOCATION_LIMIT_1_PER_TOWN                                               :only one industry of this type allowed per town.
 
+STR_ERR_INSTRUMENT_LOCATION_REQUIRE_SEA_TILE                                    :require_sea_tile
+STR_ERR_INSTRUMENT_LOCATION_REQUIRE_HEIGHT_RANGE                                :require_height_range
+STR_ERR_INSTRUMENT_LOCATION_REQUIRE_DISALLOW_COAST_OR_WATER                     :disallow_coast_or_water
+STR_ERR_INSTRUMENT_LOCATION_DISALLOW_STEEP_SLOPES                               :disallow_steep_slopes
+STR_ERR_INSTRUMENT_LOCATION_DISALLOW_SLOPES                                     :disallow_slopes
+STR_ERR_INSTRUMENT_LOCATION_REQUIRE_SLOPE                                       :require_slope
+STR_ERR_INSTRUMENT_LOCATION_REQUIRE_ROAD_ADJACENT                               :require_road_adjacent
+STR_ERR_INSTRUMENT_LOCATION_REQUIRE_HOUSES_NEARBY                               :require_houses_nearby
+STR_ERR_INSTRUMENT_LOCATION_DISALLOW_INDUSTRY_ADJACENT                          :disallow_industry_adjacent
+STR_ERR_INSTRUMENT_LOCATION_DISALLOW_DESERT                                     :disallow_desert
+STR_ERR_INSTRUMENT_LOCATION_REQUIRE_EFFECTIVELY_FLAT                            :require_effectively_flat
+
 STR_PROD_CHANGE_TEST                                                            :{BIGFONT}{BLACK}The rat jumped over the cat
 
 STR_IND_ALUMINIUM_PLANT                                                         :Aluminium Plant
