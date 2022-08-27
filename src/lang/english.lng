@@ -373,6 +373,9 @@ STR_ERR_INSTRUMENT_LOCATION_REQUIRE_HOUSES_NEARBY                               
 STR_ERR_INSTRUMENT_LOCATION_DISALLOW_INDUSTRY_ADJACENT                          :disallow_industry_adjacent
 STR_ERR_INSTRUMENT_LOCATION_DISALLOW_DESERT                                     :disallow_desert
 STR_ERR_INSTRUMENT_LOCATION_REQUIRE_EFFECTIVELY_FLAT                            :require_effectively_flat
+STR_ERR_INSTRUMENT_LOCATION_INDUSTRY_POST_PLAYER_AND_CHECK                      :get_post_player_founding_checks_AND
+STR_ERR_INSTRUMENT_LOCATION_INDUSTRY_POST_PLAYER_OR_CHECK                       :get_post_player_founding_checks_OR
+STR_ERR_INSTRUMENT_LOCATION_INDUSTRY_PRE_PLAYER_AND_CHECK                       :get_pre_player_founding_checks
 
 STR_PROD_CHANGE_TEST                                                            :{BIGFONT}{BLACK}The rat jumped over the cat
 

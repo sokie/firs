@@ -13,7 +13,7 @@ switch (FEAT_INDUSTRIES, SELF, ${industry.id}_check_location_post_player_foundin
     </tal:location_checks_industry>
     ]) {
     1: return CB_RESULT_LOCATION_ALLOW;
-    return CB_RESULT_LOCATION_DISALLOW;
+    return string(STR_ERR_INSTRUMENT_LOCATION_INDUSTRY_POST_PLAYER_AND_CHECK);
 }
 
 switch (FEAT_INDUSTRIES, SELF, ${industry.id}_check_location_post_player_founding_checks_OR,
@@ -35,7 +35,7 @@ switch (FEAT_INDUSTRIES, SELF, ${industry.id}_check_location_post_player_foundin
     </tal:fallback>
     ]) {
     1: ${industry.id}_check_location_post_player_founding_checks_AND;
-    return CB_RESULT_LOCATION_DISALLOW;
+    return string(STR_ERR_INSTRUMENT_LOCATION_INDUSTRY_POST_PLAYER_OR_CHECK);
 }
 <!--!
     generally *always* allow player to found industries (tile location checks still apply)
@@ -63,5 +63,5 @@ switch (FEAT_INDUSTRIES, SELF, ${industry.id}_check_location,
     </tal:fallback>
     ]) {
     1: return ${industry.id}_check_location_allow_player_founding;
-    return CB_RESULT_LOCATION_DISALLOW;
+    return string(STR_ERR_INSTRUMENT_LOCATION_INDUSTRY_PRE_PLAYER_AND_CHECK);
 }
