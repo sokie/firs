@@ -82,6 +82,9 @@ spriteset_metal_1 = industry.add_spriteset(
 spriteset_shed = industry.add_spriteset(
     sprites=[(710, 10, 64, 122, -31, -90)],
 )
+spriteset_station_shed_1 = industry.add_spriteset(
+    sprites=[(780, 10, 64, 122, -31, -90), (850, 10, 64, 122, -31, -90)],
+)
 spriteset_caster_crane_animated = industry.add_spriteset(
     sprites=[
         (10, 250, 64, 64, -31, -33),

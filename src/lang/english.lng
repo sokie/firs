@@ -583,3 +583,7 @@ STR_COLOUR_WHITE                                                                
 
 # objects lolz
 STR_OBJ_CLASSNAME_FIRS                                                          :FIRS industry objects (experimental)
+
+# stations lolz
+STR_STATION_CLASSNAME_FIRS                                                      :FIRS stations (experimental)
+STR_STATION_NAME_TEST                                                           :TEST STATION

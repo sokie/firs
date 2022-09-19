@@ -1,0 +1,62 @@
+// CABBAGE STATIONS
+
+spritelayout cow_pen_X(a) {
+	ground {
+        sprite: spriteset_ground_tile_hard_standing_dirt_1;
+	}
+	building {
+		sprite: basic_oxygen_furnace_spriteset_9_0(0); // first sprite in active spriteset
+		zextent: 36;
+		recolour_mode: RECOLOUR_REMAP;
+		palette:       PALETTE_USE_DEFAULT;
+	}
+}
+
+spritelayout cow_pen_Y(a) {
+	ground {
+        sprite: spriteset_ground_tile_hard_standing_dirt_1;
+	}
+	building {
+		sprite: basic_oxygen_furnace_spriteset_9_0(1); // second sprite in active spriteset
+		zextent: 36;
+		recolour_mode: RECOLOUR_REMAP;
+		palette:       PALETTE_USE_DEFAULT;
+	}
+}
+
+spritegroup cow_pen_1 {
+	little: [basic_oxygen_furnace_spriteset_9_0, basic_oxygen_furnace_spriteset_9_0];
+	lots:   basic_oxygen_furnace_spriteset_9_0;
+}
+
+spritegroup cow_pen_2 {
+	little: [basic_oxygen_furnace_spriteset_9_0, basic_oxygen_furnace_spriteset_9_0, basic_oxygen_furnace_spriteset_9_0];
+	lots:   basic_oxygen_furnace_spriteset_9_0;
+}
+
+random_switch(FEAT_STATIONS, TILE, random_cow_pen) {
+	1: cow_pen_1;
+	1: cow_pen_2;
+}
+
+/* Define the station itself */
+item(FEAT_STATIONS, cow_pen) {
+	property {
+		/* The class allows to sort stations into categories. */
+		class:                  "NML_";
+		/* If no other NewGRF provides this class before us, we have to name it */
+		classname:              string(STR_STATION_CLASSNAME_FIRS);
+		/* Name of this particular station */
+		name:                   string(STR_STATION_NAME_TEST);
+		cargo_threshold: 160;
+		draw_pylon_tiles: 0;
+		hide_wire_tiles: 0xFF;
+		non_traversable_tiles: 0;
+	}
+	graphics {
+		sprite_layouts: [cow_pen_X(0), cow_pen_Y(0)];
+		purchase: basic_oxygen_furnace_spriteset_9_0;
+		LVST: random_cow_pen;
+		basic_oxygen_furnace_spriteset_9_0;
+	}
+}

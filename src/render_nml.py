@@ -108,6 +108,7 @@ def main():
         "terrain",
         # items that depend on procedures defined above, so must be defined last
         "objects",
+        "stations",
     ]
     for header_item in header_items:
         grf_nml.write(render_header_item_nml(header_item))
