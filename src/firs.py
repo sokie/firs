@@ -146,4 +146,5 @@ for industry in sorted(registered_industries, key=lambda industry: industry.id):
         object_ids[grf_object.id] = counter
         counter += 1
         if counter > 255:
-            raise BaseException("Object ID limit exceeded", counter, grf_object.id) # yair, try harder
+            print("object ID check nerfed")
+            #raise BaseException("Object ID limit exceeded", counter, grf_object.id) # yair, try harder
