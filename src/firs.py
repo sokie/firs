@@ -145,5 +145,5 @@ for industry in sorted(registered_industries, key=lambda industry: industry.id):
         grf_object.validate()
         object_ids[grf_object.id] = counter
         counter += 1
-        if counter > 255:
+        if counter > 64000:
             raise BaseException("Object ID limit exceeded", counter, grf_object.id) # yair, try harder
