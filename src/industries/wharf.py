@@ -17,6 +17,19 @@ industry = IndustryPrimaryPort(
 )
 
 industry.enable_in_economy(
+    "EXTENDED_TEMPERATE",
+    accept_cargo_types=[
+        "STEL",
+        "COPR",
+    ],
+    prod_cargo_types_with_multipliers=[
+        ("ENSP", 19),
+        ("FMSP", 9),
+        ("GOOD", 17),
+    ],
+)
+
+industry.enable_in_economy(
     "BASIC_ARCTIC",
     accept_cargo_types=[
         "BOOM",

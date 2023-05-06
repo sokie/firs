@@ -1,6 +1,6 @@
 # Various needed programs
 GIT = git
-PYTHON3 = python3
+PYTHON3 = python
 SED = sed
 ZIP = zip
 
@@ -48,8 +48,8 @@ SOURCE_NAME = $(PROJECT_VERSIONED_NAME)-source
 BUNDLE_DIR = bundle_dir
 
 # graphviz tools
-GVPR ?= $(shell which gvpr)
-DOT  ?= $(shell which dot)
+GVPR = Graphviz/bin/gvpr.exe
+DOT = Graphviz/bin/dot.exe
 
 # Build rules
 .PHONY: default graphics lang nml grf tar bundle_tar bundle_zip bundle_src clean
@@ -76,7 +76,7 @@ $(HTML_DOCS): $(shell $(FIND_FILES) --ext=.py --ext=.pynml --ext=.pt --ext=.lng 
 ifeq ($(DOT)$(GVPR),$(GVPR)$(DOT))
 	echo "[HTML DOCS] graphviz not found, skipping cargo flow graphs"
 else
-	mkdir docs/html/static/img/cargoflow
+	mkdir docs\html\static\img\cargoflow
 	$(GVPR) 'BEG_G { fname = sprintf("docs/html/%s.dot", $$G.name); writeG($$G, fname) }' docs/cargoflow.dotall
 	cd docs/html; $(DOT) -Tsvg -O *.dot
 endif

@@ -23,6 +23,10 @@ industry.enable_in_economy(
     "BASIC_TEMPERATE",
 )
 
+industry.enable_in_economy(
+    "EXTENDED_TEMPERATE",
+)
+
 industry.add_tile(
     id="orchard_piggery_tile_1",
     foundations="return CB_RESULT_NO_FOUNDATIONS",

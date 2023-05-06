@@ -23,6 +23,12 @@ industry.enable_in_economy(
     ],
 )
 industry.enable_in_economy(
+    "EXTENDED_TEMPERATE",
+    locate_in_specific_biomes=[
+        "less_south_west",
+    ],
+)
+industry.enable_in_economy(
     "STEELTOWN",
     prob_map_gen="10",
 )

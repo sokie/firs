@@ -34,6 +34,17 @@ industry.enable_in_economy(
 )
 
 industry.enable_in_economy(
+    "EXTENDED_TEMPERATE",
+    accept_cargos_with_input_ratios=[
+        ("OIL_", 4),
+        ("NITR", 4),
+    ],
+    prod_cargo_types_with_output_ratios=[
+        ("RFPR", 8),
+    ],
+)
+
+industry.enable_in_economy(
     "BASIC_ARCTIC",
     accept_cargos_with_input_ratios=[
         ("SULP", 2),

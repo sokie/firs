@@ -26,6 +26,13 @@ industry.enable_in_economy(
     ],
 )
 
+industry.enable_in_economy(
+    "EXTENDED_TEMPERATE",
+    locate_in_specific_biomes=[
+        "more_west",
+    ],
+)
+
 industry.add_tile(
     id="copper_mine_tile_1",
     animation_length=71,

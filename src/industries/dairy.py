@@ -27,6 +27,13 @@ industry.enable_in_economy(
     ],
 )
 
+industry.enable_in_economy(
+    "EXTENDED_TEMPERATE",
+    accept_cargos_with_input_ratios=[
+        ("MILK", 6),
+    ],
+)
+
 # tile with animation for flag
 industry.add_tile(
     id="dairy_tile_1",

@@ -27,6 +27,14 @@ industry.enable_in_economy(
 )
 
 industry.enable_in_economy(
+    "EXTENDED_TEMPERATE",
+    accept_cargo_types=[
+        "FOOD",
+        "GOOD",
+    ],
+)
+
+industry.enable_in_economy(
     "BASIC_ARCTIC",
     accept_cargo_types=[
         "FOOD",

@@ -23,6 +23,13 @@ industry = IndustrySecondary(
 )
 
 industry.enable_in_economy(
+    "EXTENDED_TEMPERATE",
+    accept_cargos_with_input_ratios=[
+        ("WOOD", 4),
+    ],
+)
+
+industry.enable_in_economy(
     "BASIC_ARCTIC",
     accept_cargos_with_input_ratios=[
         ("KAOL", 2),

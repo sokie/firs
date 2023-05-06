@@ -32,6 +32,21 @@ industry.enable_in_economy(
 )
 
 industry.enable_in_economy(
+    "EXTENDED_TEMPERATE",
+    accept_cargo_types=[
+        "PAPR",
+        "FOOD",
+        "BEER",
+    ],
+    prod_cargo_types_with_multipliers=[
+        ("ENSP", 19),
+        ("FMSP", 7),
+        ("GOOD", 17),
+    ],
+    prob_map_gen="10",
+)
+
+industry.enable_in_economy(
     "BASIC_ARCTIC",
     accept_cargo_types=[
         "PAPR",

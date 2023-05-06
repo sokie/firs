@@ -27,6 +27,10 @@ industry.enable_in_economy(
     "BASIC_TEMPERATE",
 )
 
+industry.enable_in_economy(
+    "EXTENDED_TEMPERATE",
+)
+
 industry.add_tile(
     id="dairy_farm_tile_1",
     location_checks=TileLocationChecks(

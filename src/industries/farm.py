@@ -19,7 +19,6 @@ industry = IndustryPrimaryOrganic(
 )
 
 # definitely not in Arctic Basic, farm has been added and removed more than once from that economy :P
-
 industry.enable_in_economy(
     "IN_A_HOT_COUNTRY",
     prod_cargo_types_with_multipliers=[
