@@ -47,6 +47,17 @@ industry.enable_in_economy(
 )
 
 industry.enable_in_economy(
+    "EXTENDED_VANILLA_TEMPERATE",
+    accept_cargo_types=[
+        "GOOD",
+    ],
+    prod_cargo_types_with_multipliers=[
+        ("FMSP", 7),
+    ],
+    prob_map_gen="10",
+)
+
+industry.enable_in_economy(
     "BASIC_ARCTIC",
     accept_cargo_types=[
         "PAPR",

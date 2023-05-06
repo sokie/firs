@@ -43,6 +43,18 @@ industry.enable_in_economy(
     ],
 )
 
+industry.enable_in_economy(
+    "EXTENDED_VANILLA_TEMPERATE",
+    intro_year=1800,
+    name="string(STR_IND_INTEGRATED_STEEL_MILL)",  # use the simpler name in Basic Temperate to aid players new to FIRS
+    accept_cargos_with_input_ratios=[
+        ("IORE", 3),
+    ],
+    locate_in_specific_biomes=[
+        "less_south_west",
+    ],
+)
+
 industry.add_tile(
     id="integrated_steel_mill_tile_1",
     animation_length=7,

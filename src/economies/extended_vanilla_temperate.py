@@ -1,7 +1,7 @@
 from economy import Economy
 
 economy = Economy(
-    id="EXTENDED_STANDARD_TEMPERATE",
+    id="EXTENDED_VANILLA_TEMPERATE",
     numeric_id=8,
     # as of May 2015 the following cargos must have fixed positions if used by an economy:
     # passengers: 0, mail: 2, goods 5, food 11
@@ -9,24 +9,18 @@ economy = Economy(
     # bump the min. compatible version if this list changes
     cargos=[
         "passengers",
-        "alcohol",
-        "mail",
-        "chemicals",
-        "coal",
-        "goods",
-        "engineering_supplies",
         "farm_supplies",
+        "mail",
+        "coal",
+        "engineering_supplies",
+        "goods",
         "fish",
-        "fruits",
         "iron_ore",
-        "food",
+        "grain",
         "copper",
         "copper_ore",
-        "paper",
         "livestock",
         "logs",
-        "milk",
-        "nitrates",
         "oil",
         "steel",
     ],

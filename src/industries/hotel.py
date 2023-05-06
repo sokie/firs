@@ -32,6 +32,13 @@ industry.enable_in_economy(
         "PASS",
     ],
 )
+industry.enable_in_economy(
+    "EXTENDED_VANILLA_TEMPERATE",
+    accept_cargo_types=[
+        "GOOD",
+        "PASS",
+    ],
+)
 
 industry.enable_in_economy(
     "BASIC_TROPIC",

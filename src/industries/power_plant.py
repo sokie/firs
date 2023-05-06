@@ -22,6 +22,11 @@ industry.enable_in_economy(
     accept_cargo_types=["PEAT"],
 )
 
+industry.enable_in_economy(
+    "EXTENDED_VANILLA_TEMPERATE",
+    accept_cargo_types=["COAL"],
+)
+
 industry.add_tile(
     id="power_plant_tile_1",
     animation_length=7,

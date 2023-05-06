@@ -25,6 +25,12 @@ industry.enable_in_economy(
         "more_west",
     ],
 )
+industry.enable_in_economy(
+    "EXTENDED_VANILLA_TEMPERATE",
+    locate_in_specific_biomes=[
+        "more_west",
+    ],
+)
 
 industry.enable_in_economy(
     "EXTENDED_TEMPERATE",

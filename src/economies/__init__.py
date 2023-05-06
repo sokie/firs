@@ -12,6 +12,10 @@ from economies import extended_temperate
 
 extended_temperate.economy.register()
 
+from economies import extended_vanilla_temperate
+
+extended_vanilla_temperate.economy.register()
+
 from economies import basic_arctic
 
 basic_arctic.economy.register()

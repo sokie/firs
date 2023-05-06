@@ -34,6 +34,17 @@ industry.enable_in_economy(
 )
 
 industry.enable_in_economy(
+    "EXTENDED_VANILLA_TEMPERATE",
+    accept_cargos_with_input_ratios=[
+        ("LVST", 6),
+        ("GRAI", 6),
+    ],
+    prod_cargo_types_with_output_ratios=[
+        ("GOOD", 8),
+    ],
+)
+
+industry.enable_in_economy(
     "BASIC_TROPIC",
     accept_cargos_with_input_ratios=[
         ("LVST", 6),

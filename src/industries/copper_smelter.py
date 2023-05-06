@@ -32,6 +32,15 @@ industry.enable_in_economy(
         "more_west",
     ],
 )
+industry.enable_in_economy(
+    "EXTENDED_VANILLA_TEMPERATE",
+    accept_cargos_with_input_ratios=[
+        ("CORE", 5),
+    ],
+    locate_in_specific_biomes=[
+        "more_west",
+    ],
+)
 
 industry.enable_in_economy(
     "BASIC_TROPIC",

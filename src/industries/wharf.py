@@ -30,6 +30,17 @@ industry.enable_in_economy(
 )
 
 industry.enable_in_economy(
+    "EXTENDED_VANILLA_TEMPERATE",
+    accept_cargo_types=[
+        "STEL",
+        "COPR",
+    ],
+    prod_cargo_types_with_multipliers=[
+        ("ENSP", 19),
+    ],
+)
+
+industry.enable_in_economy(
     "BASIC_ARCTIC",
     accept_cargo_types=[
         "BOOM",

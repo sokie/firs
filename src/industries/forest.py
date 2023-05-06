@@ -31,6 +31,10 @@ industry.enable_in_economy(
     "EXTENDED_TEMPERATE",
 )
 
+industry.enable_in_economy(
+    "EXTENDED_VANILLA_TEMPERATE",
+)
+
 industry.add_tile(
     id="forest_tile_1",
     foundations="return CB_RESULT_NO_FOUNDATIONS",

@@ -33,6 +33,12 @@ industry.enable_in_economy(
     "EXTENDED_TEMPERATE",
 )
 industry.enable_in_economy(
+    "EXTENDED_VANILLA_TEMPERATE",
+    prod_cargo_types_with_output_ratios=[
+        ("GOOD", 8),
+    ],
+)
+industry.enable_in_economy(
     "BASIC_TROPIC",
 )
 industry.enable_in_economy(

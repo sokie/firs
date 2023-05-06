@@ -29,6 +29,9 @@ industry.enable_in_economy(
     ],
 )
 industry.enable_in_economy(
+    "EXTENDED_VANILLA_TEMPERATE",
+)
+industry.enable_in_economy(
     "STEELTOWN",
     prob_map_gen="10",
 )
