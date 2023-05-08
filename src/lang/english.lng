@@ -22,8 +22,8 @@ STR_PARAM_NAME_EXPERIMENTAL_FEATURES                                            
 STR_PARAM_DESC_EXPERIMENTAL_FEATURES                                            :Turns experimental features on or off.
 
 STR_PARAM_VALUE_ECONOMIES_BASIC_TEMPERATE                                       :Temperate Basic
-STR_PARAM_VALUE_ECONOMIES_EXTENDED_TEMPERATE                                    :Extended Temperate
-STR_PARAM_VALUE_ECONOMIES_EXTENDED_VANILLA_TEMPERATE                            :Extended Temperate Industry from Vanilla OpenTTD
+STR_PARAM_VALUE_ECONOMIES_EXTENDED_TEMPERATE                                    :Temperate Extended
+STR_PARAM_VALUE_ECONOMIES_EXTENDED_VANILLA_TEMPERATE                            :Temperate Vanilla
 STR_PARAM_VALUE_ECONOMIES_BASIC_ARCTIC                                          :Arctic Basic
 STR_PARAM_VALUE_ECONOMIES_BASIC_TROPIC                                          :Tropic Basic
 STR_PARAM_VALUE_ECONOMIES_IN_A_HOT_COUNTRY                                      :In A Hot Country

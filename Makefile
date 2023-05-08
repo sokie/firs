@@ -65,7 +65,7 @@ tar: $(TAR_FILE)
 html_docs: $(HTML_DOCS)
 
 # remove the @ for more verbose output (@ suppresses command output)
-_V ?= @
+#_V ?= @
 
 $(LANG_DIR): $(shell $(FIND_FILES) --ext=.py --ext=.pynml --ext=.lng src)
 	$(_V) $(PYTHON3) src/render_lang.py $(ARGS)
@@ -78,7 +78,8 @@ ifeq ($(DOT)$(GVPR),$(GVPR)$(DOT))
 else
 	mkdir docs\html\static\img\cargoflow
 	$(GVPR) 'BEG_G { fname = sprintf("docs/html/%s.dot", $$G.name); writeG($$G, fname) }' docs/cargoflow.dotall
-	cd docs/html; $(DOT) -Tsvg -O *.dot
+	cd docs/html; 
+	$(DOT) -Tsvg -O $(wildcard *.dot)
 endif
 
 $(NML_FILE): $(shell $(FIND_FILES) --ext=.py --ext=.pynml src)
